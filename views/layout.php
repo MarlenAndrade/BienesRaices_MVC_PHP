@@ -41,6 +41,7 @@
                             <a href="/login">Iniciar Sesión</a>
                         <?php endif; ?>
                         <?php if($auth): ?>
+                            <a href="/admin">Administrador</a>
                             <a href="/logout">Cerrar Sesión</a>
                         <?php endif; ?>
                     </nav>
