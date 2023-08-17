@@ -8,6 +8,26 @@
             <p class="alerta exito"><?php echo s($mensaje) ?></p>
         <?php } ?>
     <?php } ?>
+
+    <script>
+        function confirmacionPropiedad(){
+            let respuestaP = confirm("¿Desea realmente borrar el registro?");
+            if (respuestaP == true){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function confirmacionVendedor(){
+            let respuestaV = confirm("Si el vendedor está ligado a una propiedad NO se podrá eliminar, ¿desea continuar?");
+            if (respuestaV == true){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
     
     <a href="/propiedades/crear" class="btn btn-rosa">Crear Propiedad</a>
     <a href="/vendedores/crear" class="btn btn-rosa">Registrar Vendedor(a)</a>
@@ -37,7 +57,7 @@
                     <form method="POST" class="w-100" action="/propiedades/eliminar">
                         <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">
                         <input type="hidden" name="tipo" value="propiedad">
-                        <input type="submit" value="Eliminar" class="btn-rojo-block">
+                        <input type="submit" value="Eliminar" class="btn-rojo-block" onclick="return confirmacionPropiedad()">
                     </form>
 
                     <a href="/propiedades/actualizar?id=<?php echo $propiedad->id; ?>" class="btn-verde-block">Actualizar</a>
@@ -70,7 +90,7 @@
                     <form method="POST" class="w-100" action="/vendedores/eliminar">
                         <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
                         <input type="hidden" name="tipo" value="vendedor">
-                        <input type="submit" value="Eliminar" class="btn-rojo-block">
+                        <input type="submit" value="Eliminar" class="btn-rojo-block" onclick="return confirmacionVendedor()">
                     </form>
 
                     <a href="/vendedores/actualizar?id=<?php echo $vendedor->id; ?>" class="btn-verde-block">Actualizar</a>
